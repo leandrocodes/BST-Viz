@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 
 html {
   overflow: hidden;
@@ -8,6 +8,7 @@ body {
   text-align: center;
   color: white;
   background-color: #455a64;
+  font-family: "Poppins", sans-serif;
 }
 
 nav {
@@ -16,9 +17,10 @@ nav {
 }
 
 button {
+  font-family: "Poppins", sans-serif;
   margin-left: 1rem;
   padding: 0.1rem 0.6rem;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   cursor: pointer;
   outline: none;
@@ -41,6 +43,8 @@ button:active {
 }
 
 input {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
@@ -51,15 +55,12 @@ input {
 }
 
 .node text {
-  font: 12px sans-serif;
-}
-
-.node--internal text {
-  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+  font-family: "Poppins" sans-serif;
+  font-size: 13px;
 }
 
 .link {
   fill: none;
-  stroke: #eceff1;
-  stroke-width: 2px;
+  stroke: #fafafa;
+  stroke-width: 3px;
 }
