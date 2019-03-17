@@ -109,12 +109,12 @@ function drawTree() {
 			if (d.parent && d.parent.children.length == 1) {
 				if (d.data.direction == 'right') {
 					if (d.parent.parent)
-						d.x += Math.abs(d.parent.x - d.parent.parent.x) / 2;
+						d.x += Math.abs(d.parent.x - d.parent.parent.x) / 4;
 					else
 						d.x += width / 4;
 				} else {
 					if (d.parent.parent)
-						d.x -= Math.abs(d.parent.x - d.parent.parent.x) / 2;
+						d.x -= Math.abs(d.parent.x - d.parent.parent.x) / 4;
 					else
 						d.x -= width / 4;
 				}

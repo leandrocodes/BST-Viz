@@ -160,8 +160,8 @@ function BSTAVL() {
 		this.Delete(node);
 
 		// If the tree is not empty
-	/* 	if (this.root)
-			this.root = this.balance(this.root) */
+		/* 	if (this.root)
+				this.root = this.balance(this.root) */
 	}
 
 	this.Delete = function (cur) ///we will give it the pointer node we want to delete it , not the value , and after deleting we will call balance function given the cur
