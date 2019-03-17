@@ -68,9 +68,9 @@ function drawTree() {
 
 	// set the dimensions and margins of the diagram
 	var margin = {
-		top: 40,
+		top: 50,
 		right: 90,
-		bottom: 50,
+		bottom: 90,
 		left: 90
 	},
 		width = window.innerWidth - 10 - margin.left - margin.right,
