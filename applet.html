@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../spectre/spectre.min.css">
 <link rel="stylesheet" href="styles.css">
 
 <body>
 
-	<input type="text" id="value" value="" onkeypress="handleKeyPress(event)" autofocus
-		placeholder="Insert a number, leave in blank for a random" size="45">
-	<button type="button" onclick="InsertNode();">Push</button>
-	<button type="button" onclick="DeleteNode();">Pop</button>
-	<button type="button" onclick="SearchNode();">Get</button>
-	<button type="button" onclick="Print(bst.inorder);">Inorder</button>
-	<button type="button" onclick="Print(bst.preorder);">Preorder</button>
-	<button type="button" onclick="Print(bst.postorder);">Postorder</button>
+	<nav>
+		<input type="text" id="value" value="" onkeypress="handleKeyPress(event)" autofocus
+			placeholder="Insert a number, leave in blank for a random" size="45">
+		<button type="button" onclick="InsertNode();">Push</button>
+		<button type="button" onclick="DeleteNode();">Pop</button>
+		<button type="button" onclick="SearchNode();">Get</button>
+		<button type="button" onclick="Print(bst.inorder);">Inorder</button>
+		<button type="button" onclick="Print(bst.preorder);">Preorder</button>
+		<button type="button" onclick="Print(bst.postorder);">Postorder</button>
+	</nav>
 	<br>
 	<span id="msg"></span>
 

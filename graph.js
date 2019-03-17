@@ -26,9 +26,9 @@ function SearchNode() {
 		var val = Number(textBox.value);
 		var node = bst.Search(val);
 		if (node == -1)
-			msg.innerHTML = 'not found';
+			msg.innerHTML = 'Não achou';
 		else
-			msg.innerHTML = 'found';
+			msg.innerHTML = 'Achou';
 	}
 	textBox.value = '';
 	textBox.focus();
