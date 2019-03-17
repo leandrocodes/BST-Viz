@@ -68,11 +68,11 @@ function drawTree() {
 
 	// set the dimensions and margins of the diagram
 	var margin = {
-			top: 40,
-			right: 90,
-			bottom: 50,
-			left: 90
-		},
+		top: 40,
+		right: 90,
+		bottom: 50,
+		left: 90
+	},
 		width = window.innerWidth - 10 - margin.left - margin.right,
 		height = window.innerHeight - 45 - margin.top - margin.bottom;
 
@@ -93,15 +93,15 @@ function drawTree() {
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom),
 		g = svg.append("g")
-		.attr("transform",
-			"translate(" + margin.left + "," + margin.top + ")");
+			.attr("transform",
+				"translate(" + margin.left + "," + margin.top + ")");
 
 	// adds the links between the nodes
 	var link = g.selectAll(".link")
 		.data(nodes.descendants().slice(1))
 		.enter().append("path")
 		.attr("class", "link")
-		.attr("d", function(d) {
+		.attr("d", function (d) {
 			// If its child is the only one
 			// move it to the right or to the left
 			// (the D3.js tree's default will put the node
@@ -126,16 +126,18 @@ function drawTree() {
 				" " + d.parent.x + "," + d.parent.y;
 		});
 
+
 	// adds each node as a group
 	var node = g.selectAll(".node")
 		.data(nodes.descendants())
 		.enter().append("g")
-		.attr("class", function(d) {
+		.attr("class", function (d) {
 			return "node" +
 				(d.children ? " node--internal" : " node--leaf");
 		})
-		.attr("transform", function(d) {
+		.attr("transform", function (d) {
 			return "translate(" + d.x + "," + d.y + ")";
+
 		});
 
 	// adds the circle to the node
@@ -145,11 +147,14 @@ function drawTree() {
 	// adds the text to the node
 	node.append("text")
 		.attr("dy", ".35em")
-		.attr("y", function(d) {
+		.attr("y", function (d) {
 			return 0;
 		})
 		.style("text-anchor", "middle")
-		.text(function(d) {
+		.text(function (d) {
 			return d.data.name;
 		});
+
+
+
 }

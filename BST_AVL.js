@@ -10,7 +10,7 @@ function Node(val = null) {
 		children: []
 	};
 
-	this.UpdateHeight = function() {
+	this.UpdateHeight = function () {
 		var leftheigh = 0,
 			rightheigh = 0;
 		this.json.children = [];
@@ -31,7 +31,7 @@ function Node(val = null) {
 		this.height = 1 + Math.max(leftheigh, rightheigh);
 	}
 
-	this.balancefactor = function() {
+	/* this.balancefactor = function () {
 		var leftheigh = 0,
 			rightheigh = 0;
 		if (this.left)
@@ -39,13 +39,13 @@ function Node(val = null) {
 		if (this.right)
 			rightheigh = this.right.height;
 		return leftheigh - rightheigh;
-	}
+	} */
 }
 
 function BSTAVL() {
 	this.root = null;
 
-	this.RotateRight = function(z) {
+	/* this.RotateRight = function (z) {
 		var y = z.left,
 			t3 = null;
 		if (y)
@@ -68,7 +68,7 @@ function BSTAVL() {
 		return y;
 	}
 
-	this.RotateLeft = function(z) {
+	this.RotateLeft = function (z) {
 		var y = z.right,
 			t2 = null;
 		if (y)
@@ -92,7 +92,7 @@ function BSTAVL() {
 		return y;
 	}
 
-	this.balance = function(cur) {
+	this.balance = function (cur) {
 		if (cur.balancefactor() == 2) ///left
 		{
 			if (cur.left.balancefactor() == -1) ///if this condition is valid so it is left right
@@ -110,10 +110,10 @@ function BSTAVL() {
 			cur = this.RotateLeft(cur);
 		}
 		return cur;
-	}
+	} */
 
 	// Returns the node that contains val
-	this.Search = function(val, cur = this.root) {
+	this.Search = function (val, cur = this.root) {
 		if (cur == null)
 			return -1;
 
@@ -124,7 +124,7 @@ function BSTAVL() {
 		return this.Search(val, cur.left);
 	}
 
-	this.Insert = function(cur, val) {
+	this.Insert = function (cur, val) {
 		if (cur == null)
 			cur = new Node(val);
 		else if (val <= cur.value) {
@@ -144,15 +144,15 @@ function BSTAVL() {
 		}
 
 		cur.UpdateHeight();
-		cur = this.balance(cur);
+		//cur = this.balance(cur);
 		return cur;
 	}
 
-	this.InsertVal = function(val) {
+	this.InsertVal = function (val) {
 		this.root = this.Insert(this.root, val);
 	}
 
-	this.DeleteVal = function(val) {
+	this.DeleteVal = function (val) {
 		var node = this.Search(val);
 		if (node == -1)
 			return;
@@ -160,11 +160,11 @@ function BSTAVL() {
 		this.Delete(node);
 
 		// If the tree is not empty
-		if (this.root)
-			this.root = this.balance(this.root)
+	/* 	if (this.root)
+			this.root = this.balance(this.root) */
 	}
 
-	this.Delete = function(cur) ///we will give it the pointer node we want to delete it , not the value , and after deleting we will call balance function given the cur
+	this.Delete = function (cur) ///we will give it the pointer node we want to delete it , not the value , and after deleting we will call balance function given the cur
 	{
 		// If it is the only node in the tree
 		if (cur.parent == null && cur.right == null && cur.left == null) {
@@ -202,7 +202,7 @@ function BSTAVL() {
 				cur.right.parent = cur.parent;
 
 		} else {
-		var prev, temp = cur;
+			var prev, temp = cur;
 			temp = cur.left;
 			prev = cur;
 			while (temp.right != null) {
@@ -217,25 +217,25 @@ function BSTAVL() {
 				prev.right = temp.left;
 
 			prev.UpdateHeight();
-			prev = this.balance(prev);
+			/* prev = this.balance(prev); */
 			while (prev.parent) {
 				prev = prev.parent;
 				prev.UpdateHeight();
-				prev = this.balance(prev);
+				/* prev = this.balance(prev); */
 			}
 			return;
 		}
 
 		while (cur.parent) {
 			cur.UpdateHeight();
-			cur = this.balance(cur);
+			/* cur = this.balance(cur); */
 			cur = cur.parent;
 		}
 		cur.UpdateHeight();
-		this.root = this.balance(cur);
+		/* this.root = this.balance(cur); */
 	}
 
-	this.inorder = function(cur = this.root) {
+	this.inorder = function (cur = this.root) {
 		var numbers = [];
 		if (cur != null) {
 			numbers = this.inorder(cur.left);
@@ -245,7 +245,7 @@ function BSTAVL() {
 		return numbers;
 	}
 
-	this.preorder = function(cur = this.root) {
+	this.preorder = function (cur = this.root) {
 		var numbers = [];
 		if (cur != null) {
 			numbers = [cur.value];
@@ -255,7 +255,7 @@ function BSTAVL() {
 		return numbers;
 	}
 
-	this.postorder = function(cur = this.root) {
+	this.postorder = function (cur = this.root) {
 		var numbers = [];
 		if (cur != null) {
 			numbers = numbers.concat(this.postorder(cur.left));
